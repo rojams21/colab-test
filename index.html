@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CleanScape Pro | House Cleaning, Gardening & Deep Clean</title>
+  <meta name="description" content="Premium house cleaning, gardening, and deep cleaning services with flexible scheduling and trusted professionals." />
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg-soft: #101b31;
+      --card: rgba(16, 27, 49, 0.72);
+      --accent: #61dafb;
+      --accent-2: #66ffa6;
+      --text: #ecf2ff;
+      --muted: #b8c5df;
+      --ring: rgba(97, 218, 251, 0.45);
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at -5% -10%, #1a3561 0%, transparent 55%),
+        radial-gradient(1000px 600px at 110% 0%, #1f6f62 0%, transparent 50%),
+        var(--bg);
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin-inline: auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(8, 17, 31, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      font-size: 1.05rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 88px 0 62px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.2vw, 3.4rem);
+      line-height: 1.08;
+      margin: 0 0 16px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin: 0 0 26px;
+      max-width: 62ch;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 11px 20px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(130deg, var(--accent), #84b7ff);
+      color: #051224;
+      box-shadow: 0 10px 28px rgba(97, 218, 251, 0.32);
+    }
+
+    .btn-primary:hover { transform: translateY(-1px); }
+
+    .btn-soft {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(255, 255, 255, 0.18);
+      color: var(--text);
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .hero-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+    }
+
+    .quick-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .quick-list li {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 12px;
+      padding: 12px;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 36px 0;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+    }
+
+    .lead {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .steps {
+      counter-reset: item;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .steps li {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .steps li::before {
+      counter-increment: item;
+      content: counter(item);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      background: rgba(102, 255, 166, 0.16);
+      color: var(--accent-2);
+      font-weight: 800;
+      font-size: 0.84rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    footer {
+      padding: 40px 0 78px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 99;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(140deg, #25d366, #18a650);
+      box-shadow: 0 14px 28px rgba(11, 92, 41, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 18px 32px rgba(11, 92, 41, 0.56);
+    }
+
+    .whatsapp-float:focus-visible,
+    .btn:focus-visible,
+    .nav-links a:focus-visible {
+      outline: 3px solid var(--ring);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 940px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 68px;
+      }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a class="logo" href="#top">Clean<span>Scape</span> Pro</a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#why">Why us</a>
+        <a href="#book">Book</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top" class="container hero">
+    <div>
+      <h1>Luxury-level home care for modern living.</h1>
+      <p>
+        We deliver premium house cleaning, beautiful gardening, and intensive deep cleaning
+        with trusted professionals, fixed quality standards, and simple booking.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://wa.me/447366487668?text=Hi%2C%20I%20want%20to%20book%20house%20cleaning%2C%20gardening%2C%20or%20deep%20cleaning." target="_blank" rel="noopener">Book on WhatsApp</a>
+        <a class="btn btn-soft" href="#services">Explore Services</a>
+      </div>
+    </div>
+
+    <aside class="hero-card" aria-label="Service highlights">
+      <h3>Included in every visit</h3>
+      <ul class="quick-list">
+        <li>✅ Trained and background-checked staff</li>
+        <li>✅ Flexible one-time or recurring plans</li>
+        <li>✅ Eco-safe products available on request</li>
+        <li>✅ Service satisfaction follow-up</li>
+      </ul>
+    </aside>
+  </header>
+
+  <main>
+    <section id="services" class="section container">
+      <h2>Our Core Services</h2>
+      <p class="lead">Choose one service or combine all three for a complete property refresh.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>House Cleaning</h3>
+          <p>Routine weekly or bi-weekly cleaning for bedrooms, kitchens, bathrooms, and living spaces.</p>
+        </article>
+        <article class="card">
+          <h3>Gardening</h3>
+          <p>Lawn care, trimming, seasonal planting, and tidy outdoor maintenance to elevate curb appeal.</p>
+        </article>
+        <article class="card">
+          <h3>Deep Cleaning</h3>
+          <p>Detailed intensive cleaning for move-in/out, post-renovation, and neglected spaces.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="why" class="section container">
+      <h2>Why homeowners choose CleanScape Pro</h2>
+      <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <article class="card">
+          <h3>Premium quality process</h3>
+          <p>Every service follows a quality checklist so results remain consistently high.</p>
+        </article>
+        <article class="card">
+          <h3>Fast communication</h3>
+          <p>Direct WhatsApp support with quick scheduling and instant service confirmations.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="book" class="section container">
+      <h2>How to book in 3 easy steps</h2>
+      <ol class="steps">
+        <li>Click the green WhatsApp icon.</li>
+        <li>Send your location and selected service (cleaning, gardening, deep clean).</li>
+        <li>Receive confirmation, date, and final quote.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> CleanScape Pro — Professional House Cleaning, Gardening & Deep Cleaning.
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/447366487668?text=Hi%2C%20I%20need%20house%20cleaning%2C%20gardening%2C%20or%20deep%20cleaning." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path fill="#fff" d="M19.11 17.22c-.28-.14-1.66-.82-1.91-.91-.26-.09-.44-.14-.63.14-.19.28-.72.91-.88 1.1-.16.19-.33.21-.61.07-.28-.14-1.19-.44-2.26-1.4-.83-.74-1.39-1.66-1.56-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.63-1.53-.86-2.1-.23-.55-.46-.48-.63-.49-.16-.01-.35-.01-.54-.01-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34 0 1.38 1 2.72 1.14 2.91.14.19 1.96 2.99 4.74 4.19.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.66-.68 1.89-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33Z"/>
+      <path fill="#fff" d="M16.02 3.2c-7.08 0-12.82 5.75-12.82 12.82 0 2.27.6 4.49 1.72 6.44L3.2 28.8l6.53-1.71a12.78 12.78 0 0 0 6.29 1.64h.01c7.08 0 12.82-5.75 12.82-12.82 0-3.43-1.33-6.66-3.76-9.09A12.73 12.73 0 0 0 16.02 3.2Zm0 23.37h-.01a10.56 10.56 0 0 1-5.38-1.47l-.39-.23-3.87 1.01 1.04-3.77-.25-.39a10.58 10.58 0 0 1-1.62-5.67c0-5.85 4.76-10.61 10.62-10.61 2.83 0 5.48 1.1 7.48 3.1a10.5 10.5 0 0 1 3.12 7.5c0 5.86-4.76 10.62-10.62 10.62Z"/>
+    </svg>
+  </a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
